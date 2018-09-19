@@ -18,7 +18,7 @@ function [coef] = linear_regression (x, y)
     Y = transpose(y);           #Correção da matriz para matriz coluna
     X = array_1 * [1 0] + X*[0 1];  #Cria a matriz corrigida
     coef = inv(transpose(X)*X)*transpose(X)*Y;    
-    disp("coef(1) = coef linear");
+    disp("coef(1) = coeficiente linear");
     disp("coef(2) = coeficiente angular");
   end
     
