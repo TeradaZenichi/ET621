@@ -13,11 +13,13 @@ function [coef] = linear_regression (x, y)
   if length_x != length_y
     disp("Fatal error: Matrizes do parâmetro possuem tamanhos diferentes")
   else
-    array_1 = ones(length_x,1)  #Matriz de 1's para determinar coeficiente ang
+    array_1 = ones(length_x,1);  #Matriz de 1's para determinar coeficiente ang
     X = transpose(x);           #Correção da matriz para matriz coluna
     Y = transpose(y);           #Correção da matriz para matriz coluna
     X = array_1 * [1 0] + X*[0 1];  #Cria a matriz corrigida
-    coef = inv(transpose(X)*X)*transpose(X)*Y    
+    coef = inv(transpose(X)*X)*transpose(X)*Y;    
+    disp("coef(1) = coef linear");
+    disp("coef(2) = coeficiente angular");
   end
     
 endfunction
