@@ -31,7 +31,7 @@ Pra_vazio_1 = Ra*Ia_1(4)^2;
 Protacional_vazio_1 = Parmadura_vazio_1 - Pra_vazio_1;
 Pcarga_1 = [359.4 179.6 119.5];
 
-for i=1:4
+for i=1:3
     
     Parmadura_1(i) = Vta_1*Ia_1(i);
     Pra_1(i) = Ra*Ia_1(i);
@@ -55,7 +55,7 @@ Pra_vazio_2 = Ra*Ia_2(4)^2;
 Protacional_vazio_2 = Parmadura_vazio_2 - Pra_vazio_2;
 Pcarga_2 = [356.3 179.8 119.4];
 
-for i=1:4
+for i=1:3
     
     Parmadura_2(i) = Vta_2*Ia_2(i);
     Pra_2(i) = Ra*Ia_2(i);
@@ -80,7 +80,7 @@ Pra_vazio_3 = Ra*Ia_3(4)^2;
 Protacional_vazio_3 = Parmadura_vazio_3 - Pra_vazio_3;
 Pcarga_3 = [358.4 176 116.3];
 
-for i=1:4
+for i=1:3
     
     Parmadura_3(i) = Vta_3*Ia_3(i);
     Pra_3(i) = Ra*Ia_3(i);
@@ -92,9 +92,10 @@ for i=1:4
     
 end
 
-coefs(1,:) = linear_regression(Tem_1, W_eixo1);
-coefs(2,:) = linear_regression(Tem_2, W_eixo2);
-coefs(3,:) = linear_regression(Tem_3, W_eixo3);
+#Grafico w_eixo x Tem
+coefs(1,:) = linear_regression(Tem_1, W_eixo1(1:3));
+coefs(2,:) = linear_regression(Tem_2, W_eixo2(1:3));
+coefs(3,:) = linear_regression(Tem_3, W_eixo3(1:3));
 b1 = coefs(1,1);
 a1 = coefs(1,2);
 b2 = coefs(2,1);
@@ -108,14 +109,30 @@ hold on;
 grid on;
 plot(t,a2*t+b2, 'Linewidth', 3);
 plot(t,a3*t+b3, 'Linewidth', 3);
+scatter(Tem_1, W_eixo1(1:3));
+scatter(Tem_2, W_eixo2(1:3));
+scatter(Tem_3, W_eixo3(1:3));
 xlabel("T_{em} [N.m]");
 ylabel('\omega_{eixo} [rad/s]');
 legend('V_{ta}=200V, I_f=0.4A', 'V_{ta}=200V, I_f=0.3A', 'V_{ta}=180V, I_f=0.3A');
 
+kphi_a1 = sqrt(-Ra/a1);
+kphi_b1 = Vta_1/b1;
+kphi_a2 = sqrt(-Ra/a2);
+kphi_b2 = Vta_1/b2;
+kphi_a3 = sqrt(-Ra/a3);
+kphi_b3 = Vta_1/b3;
+printf("kphi_a1 = %f\n",kphi_a1);
+printf("kphi_b1 = %f\n",kphi_b1);
+printf("kphi_a2 = %f\n",kphi_a2);
+printf("kphi_b2 = %f\n",kphi_b2);
+printf("kphi_a3 = %f\n",kphi_a3);
+printf("kphi_b3 = %f\n",kphi_b3);
 
-coefs(1,:) = linear_regression(W_eixo1, Peixo_1);
-coefs(2,:) = linear_regression(W_eixo2, Peixo_2);
-coefs(3,:) = linear_regression(W_eixo3, Peixo_3);
+#Grafico P_eixo x w_eixo
+coefs(1,:) = linear_regression(W_eixo1(1:3), Peixo_1);
+coefs(2,:) = linear_regression(W_eixo2(1:3), Peixo_2);
+coefs(3,:) = linear_regression(W_eixo3(1:3), Peixo_3);
 b1 = coefs(1,1);
 a1 = coefs(1,2);
 b2 = coefs(2,1);
@@ -123,12 +140,16 @@ a2 = coefs(2,2);
 b3 = coefs(3,1);
 a3 = coefs(3,2);
 figure();
-t=0:1:10;
+t=150:5:200;
 plot(t,a1*t+b1, 'Linewidth', 3);
 hold on;
 grid on;
 plot(t,a2*t+b2, 'Linewidth', 3);
 plot(t,a3*t+b3, 'Linewidth', 3);
+scatter(W_eixo1(1:3), Pcarga_1);
+scatter(W_eixo2(1:3), Pcarga_2);
+scatter(W_eixo3(1:3), Pcarga_3);
+ylim([0 3000]);
 xlabel('\omega_{eixo} [rad/s]');
 ylabel('P_{eixo} [W]');
 legend('V_{ta}=200V, I_f=0.4A', 'V_{ta}=200V, I_f=0.3A', 'V_{ta}=180V, I_f=0.3A');
@@ -144,12 +165,16 @@ a2 = coefs(2,2);
 b3 = coefs(3,1);
 a3 = coefs(3,2);
 figure();
-t=0:1:10;
+t=150:5:200;
 plot(t,a1*t+b1, 'Linewidth', 3);
 hold on;
 grid on;
 plot(t,a2*t+b2, 'Linewidth', 3);
 plot(t,a3*t+b3, 'Linewidth', 3);
+scatter(W_eixo1(1:3), Pcarga_1);
+scatter(W_eixo2(1:3), Pcarga_2);
+scatter(W_eixo3(1:3), Pcarga_3);
+ylim([0 3000]);
 xlabel('\omega_{eixo} [rad/s]');
 ylabel('P_{carga} [W]');
 legend('V_{ta}=200V, I_f=0.4A', 'V_{ta}=200V, I_f=0.3A', 'V_{ta}=180V, I_f=0.3A');
