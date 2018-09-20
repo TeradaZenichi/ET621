@@ -2,10 +2,10 @@
 #de rotação em função da corrente de armadura, considere as seguintes condições:
 
 #Va = 200V e If = 0.4A
-#Ia_1 = [1.0860 3.1360 2.0830 1.7440];
-#n_1 = [1537 1478 1488 1508];
-Ia_1 = [3.1360 2.0830 1.7440];
-n_1 = [1478 1488 1508];
+Ia_1 = [1.0860 3.1360 2.0830 1.7440];
+n_1 = [1537 1478 1488 1508];
+#Ia_1 = [3.1360 2.0830 1.7440];
+#n_1 = [1478 1488 1508];
 w_1 = n_1*pi/30;
 disp("Coeficientes calculados para Va = 200V e If = 0.4A");
 coef_1 = linear_regression(Ia_1, w_1)
@@ -46,6 +46,12 @@ plot(t,y_2,'Linewidth', 3)
 hold on
 plot(t,y_3,'Linewidth', 3)
 grid on
+scatter(Ia_1,w_1);
+hold on
+scatter(Ia_2,w_2);
+hold on
+scatter(Ia_3,w_3);
+hold on
 #title('Gráfico de velocidade angular do eixo versus corrente de armadura')
 legend('V_{a} = 200V e I_{f} = 0.4A', 'V_{a} = 200V e I_{f} = 0.3A', 'V_{a} = 180V e I_{f} = 0.3A')
 xlabel('I_{a} [A]');
