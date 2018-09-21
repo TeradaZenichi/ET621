@@ -30,9 +30,9 @@ w_2 = n_2*pi/30;
 disp("Coeficientes calculados para Va = 200V e If = 0.3A");
 coef_2 = linear_regression(Ia_2, w_2)
 kaphi_2_linear = 200/coef_2(1);
-printf("Ka*phi baseado no coeficiente linear: %f", kaphi_2_linear);
+printf("Ka*phi baseado no coeficiente linear: %f\n", kaphi_2_linear);
 kaphi_2_angular = -ra/coef_2(2);
-printf("Ka*phi baseado no coeficiente angular: %f", kaphi_2_angular);
+printf("Ka*phi baseado no coeficiente angular: %f\n", kaphi_2_angular);
 disp(' ')
 #############################################################
 
