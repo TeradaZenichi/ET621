@@ -3,6 +3,7 @@
 
 #Resistência do enrolamento com a máquina quente
 ra = 2;
+disp(' ');
 #Va = 200V e If = 0.4A
 #Ia_1 = [1.0860 3.1360 2.0830 1.7440];
 #n_1 = [1537 1478 1488 1508];
@@ -12,16 +13,12 @@ w_1 = n_1*pi/30;
 #############################################################
 disp("Coeficientes calculados para Va = 200V e If = 0.4A");
 coef_1 = linear_regression(Ia_1, w_1)
-disp("Ka*phi baseado no coeficiente linear");
 kaphi_1_linear = 200/coef_1(1);
-disp(kaphi_1_linear)
-disp("Ka*phi baseado no coeficiente angular");
+printf("Ka*phi baseado no coeficiente linear: %f\n", kaphi_1_linear);
 kaphi_1_angular = -ra/coef_1(2);
-disp(kaphi_1_angular)
+printf("Ka*phi baseado no coeficiente angular: %f\n", kaphi_1_angular);
 disp(' ')
 #############################################################
-
-
 
 #Va = 200V e If = 0.3A
 #Ia_2 = [1.295 3.340 2.307 1.964];
@@ -32,12 +29,10 @@ w_2 = n_2*pi/30;
 #############################################################
 disp("Coeficientes calculados para Va = 200V e If = 0.3A");
 coef_2 = linear_regression(Ia_2, w_2)
-disp("Ka*phi baseado no coeficiente linear");
 kaphi_2_linear = 200/coef_2(1);
-disp(kaphi_2_linear)
-disp("Ka*phi baseado no coeficiente angular");
+printf("Ka*phi baseado no coeficiente linear: %f", kaphi_2_linear);
 kaphi_2_angular = -ra/coef_2(2);
-disp(kaphi_2_angular)
+printf("Ka*phi baseado no coeficiente angular: %f", kaphi_2_angular);
 disp(' ')
 #############################################################
 
@@ -50,12 +45,10 @@ w_3 = n_3*pi/30;
 #############################################################
 disp("Coeficientes calculados para Va = 180V e If = 0.3A");
 coef_3 = linear_regression(Ia_3, w_3)
-disp("Ka*phi baseado no coeficiente linear");
 kaphi_3_linear = 180/coef_3(1);
-disp(kaphi_3_linear)
-disp("Ka*phi baseado no coeficiente angular");
+printf("Ka*phi baseado no coeficiente linear: %f\n", kaphi_3_linear);
 kaphi_3_angular = -ra/coef_3(2);
-disp(kaphi_3_angular)
+printf("Ka*phi baseado no coeficiente angular: %f\n", kaphi_3_angular);
 disp(' ')
 #############################################################
 
