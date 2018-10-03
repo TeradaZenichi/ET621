@@ -3,5 +3,6 @@
 file = csvread('TEK0000_edited.CSV');
 plot(file(:,1),file(:,2))
 xlim([0 15]);
+grid on;
 ylabel('Tensão [v]');
 xlabel('Tempo [s]');
