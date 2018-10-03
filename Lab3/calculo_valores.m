@@ -93,9 +93,15 @@ for i=1:3
 end
 
 #Grafico w_eixo x Tem
+disp("Coeficientes calculados para Va = 200V e If = 0.4A");
 coefs(1,:) = linear_regression(Tem_1, W_eixo1(1:3));
+coefs(1,:)
+disp("Coeficientes calculados para Va = 200V e If = 0.3A");
 coefs(2,:) = linear_regression(Tem_2, W_eixo2(1:3));
+coefs(2,:)
+disp("Coeficientes calculados para Va = 180V e If = 0.3A");
 coefs(3,:) = linear_regression(Tem_3, W_eixo3(1:3));
+coefs(3,:)
 b1 = coefs(1,1);
 a1 = coefs(1,2);
 b2 = coefs(2,1);
@@ -122,12 +128,18 @@ kphi_a2 = sqrt(-Ra/a2);
 kphi_b2 = Vta_1/b2;
 kphi_a3 = sqrt(-Ra/a3);
 kphi_b3 = Vta_1/b3;
-printf("kphi_a1 = %f\n",kphi_a1);
-printf("kphi_b1 = %f\n",kphi_b1);
-printf("kphi_a2 = %f\n",kphi_a2);
-printf("kphi_b2 = %f\n",kphi_b2);
-printf("kphi_a3 = %f\n",kphi_a3);
-printf("kphi_b3 = %f\n",kphi_b3);
+disp("Ka*phi para Va = 200V e If = 0.4A");
+printf("Baseado no coeficiente angular: %f\n",kphi_a1);
+printf("Baseado no coeficiente linear: %f\n",kphi_b1);
+disp(" ");
+disp("Ka*phi para Va = 200V e If = 0.3A");
+printf("Baseado no coeficiente angular:  %f\n",kphi_a2);
+printf("Baseado no coeficiente linear:  %f\n",kphi_b2);
+disp(" ");
+disp("Ka*phi para Va = 180V e If = 0.3A");
+printf("Baseado no coeficiente angular:  %f\n",kphi_a3);
+printf("Baseado no coeficiente linear:  %f\n",kphi_b3);
+disp(" ");
 
 #Grafico P_eixo x w_eixo
 coefs(1,:) = linear_regression(W_eixo1(1:3), Peixo_1);
