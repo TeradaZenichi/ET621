@@ -1,4 +1,4 @@
-clear
+clear all
 clc
 close all
 %Plot da curva de corrente no estator versus velocidade do rotor
@@ -7,7 +7,8 @@ n = [1786 1781 1769];
 w = (n*pi)/30;
 
 figure(1)
-plot(w,I)
+grid on;
+plot(w,I,w,I,'sb')
 xlabel('Velocidade angular do rotor [rad/s]');
 ylabel('Corrente do estator [A]');
 
@@ -17,7 +18,8 @@ P_eixo = P - 330;
 T_mec = P./w;
 T_eixo = P_eixo./w;
 figure(2)
-plot(w,T_eixo)
+grid on;
+plot(w,T_eixo,w,T_eixo,'sb')
 xlabel('Velocidade angular do rotor [rad/s]');
 ylabel('Torque do eixo [N.m]');
 
@@ -56,6 +58,7 @@ for k = 1:100
   Ia(k) = Vth/Z;
 end
 figure(3)
+grid on;
 plot(w_eixo,Ia)
 xlabel('Velocidade angular do rotor [rad/s]');
 ylabel('Corrente de armadura [A]');
@@ -65,21 +68,26 @@ for k = 1:100
   T(k) = (3/((1800*pi/30)*s(k)))*(R2_linha*Vth^2)/((Rth + R2_linha/s(k))^2 + (Xth+X2_linha)^2);
 end
 figure(4)
+grid on;
 plot(w_eixo,T);
-xlabel('velocidade angular do rotor [rad/s]')
+xlabel('Velocidade angular do rotor [rad/s]')
 ylabel('Torque de eixo [N.m]')
 
 %Plot da curva de I(w) obtida e teórica
 figure(5)
+grid on;
 plot(w_eixo,Ia)
 hold on
 plot(w,I)
+legend('Curva teórica','Curva Experimental');
 xlabel('Velocidade angular do rotor [rad/s]');
 ylabel('Corrente de armadura [A]');
 
 figure(6)
+grid on;
 plot(w_eixo,T)
 hold on
 plot(w,T_mec)
-xlabel('velocidade angular do rotor [rad/s]')
+legend('Curva teórica','Curva Experimental')
+xlabel('Velocidade angular do rotor [rad/s]')
 ylabel('Torque de eixo [N.m]')
