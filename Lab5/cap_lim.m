@@ -25,6 +25,8 @@ plot(Iphi,V1_fase)
 hold on
 plot(i,v1,'g')
 legend('Curva de magnetização', 'Reta tangente a curva')
+xlabel('Corrente [A])')
+ylabel('Tensão de fase [V]')
 
 C_delta = 1/(3*2*pi*59.94*coef1(2))*1000000;
 printf("\n Valor do capacitor para configuração delta: %f uF\n", C_delta)
