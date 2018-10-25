@@ -47,6 +47,6 @@ plot(i,a(2)*i,'k','Linewidth',2)
 plot(i,a(3)*i,'g','Linewidth',2)
 plot(i,a(4)*i,'c','Linewidth',2)
 plot(I1,V_1med_fase,'rs')
-legend('Curva de magnetização','Curva do capacitor de 30\muF','Curva do capacitor de 25\muF','Curva do capacitor de 20\muF','Curva do capacitor de 15\muF')
+legend('Curva de magnetização','Curva do capacitor de 30\micro\','','')
 
 hold off
