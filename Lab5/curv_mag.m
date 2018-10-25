@@ -22,7 +22,9 @@ plot(Iphi,V1_fase,Iphi,V1_fase, 'o')
 hold off
 %Operação do gerador de indução auto excitado
 C_delta = (10^(-6))*[30 25 20 15];
-C_triangulo = 3*C_delta;
+
+C_estrela = 3*C_delta;
+
 V_1med_linha = [219.4 192.1 115.1 7.7];
 V_1med_fase = V_1med_linha/sqrt(3);
 I1 = [4.2 3.1 1.5 0];
@@ -30,17 +32,19 @@ f1 = [59.93 59.93 59.94 60.02];
 
 a = zeros(1,4);
 
-a = 1./(2*pi*f1.*C_triangulo);
+a = 1./(2*pi*f1.*C_estrela');
 i = 0 : 0.1 : 5;
 
 figure(2)
 grid on
 hold on
 plot(Iphi,V1_fase,Iphi,V1_fase, 'o')
+
 plot(i,a(1)*i)
 plot(i,a(2)*i)
 plot(i,a(3)*i)
 plot(i,a(4)*i)
+
 plot(I1,V_1med_fase,'rs')
 
 hold off
