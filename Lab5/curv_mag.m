@@ -24,7 +24,12 @@ ylabel('V_f[V]')
 hold off
 %Operação do gerador de indução auto excitado
 C_delta = (10^(-6))*[30 25 20 15];
+<<<<<<< HEAD
 C_triangulo = 3*C_delta;
+=======
+
+C_estrela = 3*C_delta;
+>>>>>>> 4392f5be2f95e338873f744f03e824f6bc31ace3
 
 V_1med_linha = [219.4 192.1 115.1 7.7];
 V_1med_fase = V_1med_linha/sqrt(3);
@@ -33,7 +38,7 @@ f1 = [59.93 59.93 59.94 60.02];
 
 a = zeros(1,4);
 
-a = 1./(2*pi*f1.*C_triangulo);
+a = 1./(2*pi*f1.*C_estrela');
 i = 0 : 0.1 : 5;
 
 figure(2)
@@ -41,11 +46,21 @@ xlabel('I_{\phi} [A]')
 ylabel('V_f [V]')
 grid on
 hold on
+<<<<<<< HEAD
 plot(Iphi,V1_fase, 'b','Linewidth',2);
 plot(i,a(1)*i,'r','Linewidth',2)
 plot(i,a(2)*i,'k','Linewidth',2)
 plot(i,a(3)*i,'g','Linewidth',2)
 plot(i,a(4)*i,'c','Linewidth',2)
+=======
+plot(Iphi,V1_fase,Iphi,V1_fase, 'o')
+
+plot(i,a(1)*i)
+plot(i,a(2)*i)
+plot(i,a(3)*i)
+plot(i,a(4)*i)
+
+>>>>>>> 4392f5be2f95e338873f744f03e824f6bc31ace3
 plot(I1,V_1med_fase,'rs')
 legend('Curva de magnetização','Curva do capacitor de 30\muF','Curva do capacitor de 25\muF','Curva do capacitor de 20\muF','Curva do capacitor de 15\muF')
 
