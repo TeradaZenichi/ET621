@@ -27,4 +27,4 @@ hold on
 scatter(I_vazio,f_vazio)
 legend('V vs I', 'F vs I', 'Tensão a vazio', 'Frequência a vazio')
 xlabel('Corrente [A]')
-ylabel('Tensao de linha [A] / Frequencia [Hz]')
+ylabel('Tensao de linha [V] / Frequencia [Hz]')
