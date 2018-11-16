@@ -24,7 +24,7 @@ V = coef(1)+coef(2)*I;
 plot(I,V,'r','Linewidth', 2)
  
 
-print -djpg fig1.jpg
+print -djpg fig1_c_zero.jpg
 
 
 
